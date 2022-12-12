@@ -1,0 +1,8 @@
+require("base")
+require("maps")
+require("plugins")
+require("color")
+require("plugin-config/nvim-tree")
+require("plugin-config/bufferline")
+require("plugin-config/nvim-treesitter")
+require("lsp/setup")
