@@ -189,6 +189,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\Windows\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
   },
+  rainbow = {
+    loaded = true,
+    path = "C:\\Users\\Windows\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\rainbow",
+    url = "https://github.com/luochen1990/rainbow"
+  },
   ["schemastore.nvim"] = {
     loaded = true,
     path = "C:\\Users\\Windows\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\schemastore.nvim",
