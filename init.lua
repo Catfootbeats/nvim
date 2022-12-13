@@ -1,20 +1,23 @@
 -- 基础配置
-require("base")
+require("user/base")
 -- 快捷键映射
-require("maps")
+require("user/maps")
 -- Packer插件管理
-require("plugins")
+require("user/plugins")
 -- 主题设置
-require("color")
+require("user/color")
 -- 插件配置
 -- require("plugin-config/rainbow.vim")
-require("plugin-config/nvim-tree")
-require("plugin-config/bufferline")
-require("plugin-config/nvim-treesitter")
-require("plugin-config/lualine")
-require("plugin-config/telescope")
-require("plugin-config/coc")
-
+require("user/plugin-config/cmp")
+require("user/lsp")
+require("user/plugin-config/nvim-tree")
+require("user/plugin-config/bufferline")
+require("user/plugin-config/nvim-treesitter")
+require("user/plugin-config/lualine")
+require("user/plugin-config/telescope")
+require("user/plugin-config/autopairs")
+require("user/plugin-config/comment")
+require("user/plugin-config/symbols-outline")
 
 -- -- 内置LSP
 -- require("lsp/setup")
