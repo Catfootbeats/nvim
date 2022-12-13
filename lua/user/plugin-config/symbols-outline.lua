@@ -1,4 +1,4 @@
-vim.g.symbols_outline = {
+require("symbols-outline").setup{
   highlight_hovered_item = true,
   show_guides = true,
   auto_preview = false,
@@ -59,3 +59,6 @@ vim.g.symbols_outline = {
     TypeParameter = {icon = "𝙏", hl = "TSParameter"}
   }
 }
+local map = vim.keymap
+local opt = {noremap = true, silent = true }
+map.set("n", "<leader>o", ":SymbolsOutline<CR>",opt)

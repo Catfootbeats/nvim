@@ -88,7 +88,7 @@
 
 - `gcc`注释
 
-- [文件大纲](https://github.com/simrat39/symbols-outline.nvim)
+- [文件大纲](https://github.com/simrat39/symbols-outline.nvim) `<leader>o` 开启关闭大纲
 
 - 命令模式输入Tab提示
 
