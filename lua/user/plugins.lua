@@ -50,6 +50,7 @@ return packer.startup(
   
     -- 主题
     use 'sainnhe/everforest'
+    use 'rakr/vim-one'
 
     -- nvim-tree
     use {
@@ -125,6 +126,13 @@ return packer.startup(
     use "williamboman/mason-lspconfig.nvim" -- simple to use language server installer
     use 'jose-elias-alvarez/null-ls.nvim' -- LSP diagnostics and code actions
 
+    -- Debugger
+    use {'mfussenegger/nvim-dap'}
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+    use 'theHamsta/nvim-dap-virtual-text'
+
+    -- 终端
+    use "akinsho/toggleterm.nvim"
     -- UI 增强
     use("onsails/lspkind-nvim")
     use("tami5/lspsaga.nvim")

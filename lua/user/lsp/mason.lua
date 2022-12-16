@@ -3,7 +3,9 @@ local servers = {
 	"sumneko_lua",
 	"pyright",
 	"jsonls",
-	"clangd"
+	"clangd",
+	"cmake",
+	"omnisharp"
 }
 
 local settings = {

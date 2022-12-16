@@ -199,6 +199,21 @@ _G.packer_plugins = {
     path = "C:\\Users\\Windows\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "C:\\Users\\Windows\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-dap-ui"] = {
+    loaded = true,
+    path = "C:\\Users\\Windows\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-dap-ui",
+    url = "https://github.com/rcarriga/nvim-dap-ui"
+  },
+  ["nvim-dap-virtual-text"] = {
+    loaded = true,
+    path = "C:\\Users\\Windows\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-dap-virtual-text",
+    url = "https://github.com/theHamsta/nvim-dap-virtual-text"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "C:\\Users\\Windows\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lspconfig",
@@ -263,6 +278,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\Windows\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["toggleterm.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\Windows\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
+  },
+  ["vim-one"] = {
+    loaded = true,
+    path = "C:\\Users\\Windows\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-one",
+    url = "https://github.com/rakr/vim-one"
   }
 }
 

@@ -10,4 +10,5 @@ vim.api.nvim_create_autocmd('TextYankPost',{
   }
 )
 
-vim.cmd('colorscheme everforest')
+vim.cmd('colorscheme one')
+vim.background=dark

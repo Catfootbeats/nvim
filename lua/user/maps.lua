@@ -36,7 +36,7 @@ map.set("n", "<A-k>", "<C-w>k", opt)
 map.set("n", "<A-l>", "<C-w>l", opt)
 
 -- 映射ESC
-map.set("i", "jj", "<Esc>", opts)
+map.set("i", "jk", "<Esc>", opts)
 
 -- 插入模式移动光标
 map.set("i","<C-[>","<Left>", opt)
@@ -51,4 +51,23 @@ map.set("n","<C-q>","<Cmd>q<CR>")
 -- 配置NvimTreeToggle快捷键
 map.set("n","<A-m>", ":NvimTreeToggle<CR>", opt)
 
+-- 格式化
+map.set("n","<leader>f",":Format<CR>",opt)
+map.set("i",";",";<ESC>:Format<CR>i<Right><Right>",opt)
 
+-- CMake构建以及运行
+-- 生成数据库
+map.set("n","<leader><leader>s",":!cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=1<CR>",opt)
+map.set("n","<leader><leader>b",":!cmake --build build -j2<CR>",opt)
+map.set("n","<leader><leader>t",":!cmake --build build -j2 --target test<CR>",opt)
+map.set("n","<leader><leader>r",":!./run<CR>",opt)
+
+-- python
+map.set("n", "<leader>py", "<cmd>!python %<CR>", {silent = true, noremap = true})
+
+-- 断点
+vim.keymap.set({"i", "n", "v"}, "<F5>", "<cmd>lua require'dap'.continue()<CR>", {silent = true, noremap = true, buffer = bufnr})
+vim.keymap.set({"i", "n", "v"}, "<F10>", "<cmd>lua require'dap'.step_over()<CR>", {silent = true, noremap = true, buffer = bufnr})
+vim.keymap.set({"i", "n", "v"}, "<F11>", "<cmd>lua require'dap'.step_into()<CR>", {silent = true, noremap = true, buffer = bufnr})
+vim.keymap.set({"i", "n", "v"}, "<F12>", "<cmd>lua require'dap'.step_over()<CR>", {silent = true, noremap = true, buffer = bufnr})
+vim.keymap.set({"i", "n", "v"}, "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", {silent = true, noremap = true, buffer = bufnr})

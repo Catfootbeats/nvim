@@ -18,14 +18,10 @@ require("user/plugin-config/telescope")
 require("user/plugin-config/autopairs")
 require("user/plugin-config/comment")
 require("user/plugin-config/symbols-outline")
-
--- -- 内置LSP
--- require("lsp/setup")
--- require("lsp/cmp")
--- require("lsp/ui")
--- 格式化
---require("lsp/null-ls")
--- DSP断点调试
---require("dap/nvim-dap")
--- 复制到Windows剪贴板 utils
---require("utils/fix-yank")
+require("user/plugin-config/gitsigns")
+require("user/plugin-config/toggleterm")
+require("user/plugin-config/dashboard")
+-- dap
+require("user/dap/dap")
+require("user/dap/dap-ui")
+require("user/dap/cpp")

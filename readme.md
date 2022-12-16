@@ -24,7 +24,7 @@
   
   下 `Ctrl + N`
 
-- 退出插入模式 `jj`
+- 退出插入模式 `jk`
 
 - `Alt + hjkl`选择窗口
 
@@ -72,7 +72,21 @@
 
 - `<loader>q` 错误列表(<loader>目前设置为`\`)
 
-- 添加语言支持在 `mason.lua` 的server加，使用 `:Mason` 命令安装，在settings里面添加设置。具体见[mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
+- 添加语言支持在 `mason.lua` 的server加，使用 `:LspInstall <server>` 命令安装，在settings里面添加设置。
+  
+  具体见[mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim),[设置](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md)
+
+  `cmd = {DATA_PATH .. '/lspinstall/cmake/venv/bin/<server>'}`添加的cmd大概写成这样,文件名不行就试试后面加-ls
+
+- 注：C#提示依赖Visual Studio工程文件 
+  
+  C++需要导出数据库 `cmake -S ./ -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=1`
+
+#### CMake相关快捷键
+
+- `<leader><leader>s` `cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=1`
+- `<leader><leader>b` `cmake --build build -j2`
+- `<leader><leader>t` `cmake --build build -j2 --target test`
 
 #### 查找功能
 
@@ -84,7 +98,27 @@
 - `<leader>/` 不知道有啥意义
 - lua\user\plugin-config\telescope.lua 自己看罢(
 
+#### Debugger
+
+- DIInstall `Tab` 安装 DIList 验证
+
 #### 其他
+
+- `<leader>py` 运行python
+
+- 在文件浏览器按`s`可以运行程序
+
+- Linux或者OSX可以安装 `lolcat` 去 `dashboard.lua` 开启彩虹首页
+
+- 可在项目目录里面创建一个 `run.bat` 或者 `run.sh` ,使用 `<leader><leader>r` 运行
+
+- `:checkhealth` 检查是否配置完成
+
+- `;` 或者普通模式 `<leader>f` 格式化代码
+
+- `Ctrl + \` 打开终端 Windows Terminal也可以直接 `Win + 飘号键` 打开Windows Terminal自带的终端
+
+- Gitsigns命令 git功能
 
 - `gcc`注释
 
