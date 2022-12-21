@@ -72,6 +72,10 @@
 
 - `<loader>q` 错误列表(<loader>目前设置为`\`)
 
+- `<loader>ca` 快速修复
+
+- `<loader>rn` 重命名
+
 - 添加语言支持在 `mason.lua` 的server加，使用 `:LspInstall <server>` 命令安装，在settings里面添加设置。
   
   具体见[mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim),[设置](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md)
