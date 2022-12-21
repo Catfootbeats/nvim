@@ -57,10 +57,10 @@ map.set("i",";",";<ESC>:Format<CR>i<Right><Right>",opt)
 
 -- CMake构建以及运行
 -- 生成数据库
-map.set("n","<leader><leader>s",":!cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=1<CR>",opt)
+map.set("n","<leader><leader>s",":!cmake -S . -B build  -DCMAKE_EXPORT_COMPILE_COMMANDS=1<CR>",opt)
 map.set("n","<leader><leader>b",":!cmake --build build -j2<CR>",opt)
 map.set("n","<leader><leader>t",":!cmake --build build -j2 --target test<CR>",opt)
-map.set("n","<leader><leader>r",":!./run<CR>",opt)
+map.set("n","<leader><leader>r",":!./run.bat<CR>",opt)
 
 -- python
 map.set("n", "<leader>py", "<cmd>!python %<CR>", {silent = true, noremap = true})

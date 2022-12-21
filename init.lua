@@ -21,6 +21,7 @@ require("user/plugin-config/symbols-outline")
 require("user/plugin-config/gitsigns")
 require("user/plugin-config/toggleterm")
 require("user/plugin-config/dashboard")
+require("user/plugin-config/formatter")
 -- dap
 require("user/dap/dap")
 require("user/dap/dap-ui")
