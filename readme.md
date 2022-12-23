@@ -1,5 +1,3 @@
-# coc使用前需安装nodo.js Packer 
-
 # #插件
 
 - 更新安装 PackerSync
@@ -135,15 +133,3 @@
 - 代码格式化 `=` 全部格式化 `ggvG=` or `gg=G`
 
 - 折叠代码 `zc` `zo`
-
-# ------ Coc ------ 
-
-coc分支
-
-- CocList extensions 显示所有插件
-
-- CocUninstall <插件名称>
-
-- CocList marketplace <插件名> 查找插件
-
-- 其余看代码罢（

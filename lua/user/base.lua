@@ -14,8 +14,6 @@ vim.opt.hlsearch = true
 -- 边输入边搜索
 vim.opt.incsearch = true
 
-vim.opt.mouse = "a"
-vim.opt.clipboard:append ("unnamedplus")
 -- 缩进两个空格等于一个Tab
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -34,4 +32,6 @@ vim.bo.autoread = true
 
 vim.opt.list = true
 
+vim.opt.mouse = "a"
+vim.opt.clipboard:append ("unnamedplus")
 vim.api.nvim_command(':filetype plugin on')
