@@ -118,7 +118,7 @@
 
 - `:checkhealth` 检查是否配置完成
 
-- `;` 或者普通模式 `<leader>f` 格式化代码
+- `;` 或者普通模式 `ff` 格式化代码
 
 - `Ctrl + \` 打开终端 Windows Terminal也可以直接 `Win + 飘号键` 打开Windows Terminal自带的终端
 

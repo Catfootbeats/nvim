@@ -3,7 +3,7 @@ local dap = require("dap")
 dap.adapters.cppdbg = {
     id = "cppdbg",
     type = 'executable',
-    command = "~/.local/share/nvim/mason/bin/OpenDebugAD7",
+    command = "C:\\Users\\Windows\\AppData\\Local\\nvim-data\\mason\\bin\\OpenDebugAD7.cmd",
 }
 
 dap.configurations.cpp = {
@@ -12,7 +12,7 @@ dap.configurations.cpp = {
         type = "cppdbg",
         request = "launch",
         program = function()
-            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "\\", "file")
         end,
 
         cwd = "${workspaceFolder}",

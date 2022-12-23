@@ -6,9 +6,6 @@ vim.opt.relativenumber = true
 vim.scriptencoding = "utf-8"
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
--- 语言设定
-local lang = 'zh_CN'
-vim.o.langmenu = lang
 -- jk移动光标上下保留函数
 vim.opt.scrolloff = 5
 vim.opt.sidescrolloff = 5
@@ -23,8 +20,11 @@ vim.opt.clipboard:append ("unnamedplus")
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.expandtab = false
+vim.opt.expandtab = true
 vim.opt.termguicolors = true
+
+-- 很长一行自动换行
+vim.opt.wrap = false
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true

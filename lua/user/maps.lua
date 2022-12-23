@@ -2,7 +2,7 @@ vim.g.maploader = "\\"
 vim.g.maplocalleader = ""
 -- 保存本地变量
 local map = vim.keymap
-local opt = {noremap = true, silent = true }
+local opt = { noremap = true, silent = true }
 
 -- 之后就可以这样映射按键了
 -- map('模式','按键','映射为XX',opt)
@@ -26,8 +26,8 @@ map.set("n", "so", "<C-w>o", opt) -- close others
 map.set("n", "s>", ":vertical resize +20<CR>", opt)
 map.set("n", "s<", ":vertical resize -20<CR>", opt)
 map.set("n", "s=", "<C-w>=", opt)
-map.set("n", "sj", ":resize +10<CR>",opt)
-map.set("n", "sk", ":resize -10<CR>",opt)
+map.set("n", "sj", ":resize +10<CR>", opt)
+map.set("n", "sk", ":resize -10<CR>", opt)
 
 --窗口跳转
 map.set("n", "<A-h>", "<C-w>h", opt)
@@ -39,35 +39,35 @@ map.set("n", "<A-l>", "<C-w>l", opt)
 map.set("i", "jk", "<Esc>", opts)
 
 -- 插入模式移动光标
-map.set("i","<C-[>","<Left>", opt)
-map.set("i","<C-]>","<Right>", opt)
-map.set("i","<C-p>","<Up>", opt)
-map.set("i","<C-n>","<Down>", opt)
+map.set("i", "<C-[>", "<Left>", opt)
+map.set("i", "<C-]>", "<Right>", opt)
+map.set("i", "<C-p>", "<Up>", opt)
+map.set("i", "<C-n>", "<Down>", opt)
 
 -- 保存和退出
-map.set("n","<C-s>","<Cmd>w<CR>")
-map.set("n","<C-q>","<Cmd>q<CR>")
+map.set("n", "<C-s>", "<Cmd>w<CR>")
+map.set("n", "<C-q>", "<Cmd>q<CR>")
 
 -- 配置NvimTreeToggle快捷键
-map.set("n","<A-m>", ":NvimTreeToggle<CR>", opt)
+map.set("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
 
 -- 格式化
-map.set("n","<leader>f",":Format<CR>",opt)
-map.set("i",";",";<ESC>:Format<CR>i<Right><Right>",opt)
+map.set("n", "ff", ":Format<CR>", opt)
+map.set("i", ";", ";<ESC>:Format<CR>i<Right><Right>", opt)
 
 -- CMake构建以及运行
 -- 生成数据库
-map.set("n","<leader><leader>s",":!cmake -S . -B build  -DCMAKE_EXPORT_COMPILE_COMMANDS=1<CR>",opt)
-map.set("n","<leader><leader>b",":!cmake --build build -j2<CR>",opt)
-map.set("n","<leader><leader>t",":!cmake --build build -j2 --target test<CR>",opt)
-map.set("n","<leader><leader>r",":!./run.bat<CR>",opt)
+map.set("n", "<leader><leader>s", ":!cmake -S . -B build  -DCMAKE_EXPORT_COMPILE_COMMANDS=1<CR>", opt)
+map.set("n", "<leader><leader>b", ":!cmake --build build -j2<CR>", opt)
+map.set("n", "<leader><leader>t", ":!cmake --build build -j2 --target test<CR>", opt)
+map.set("n", "<leader><leader>r", ":!./run.bat<CR>", opt)
 
 -- python
-map.set("n", "<leader>py", "<cmd>!python %<CR>", {silent = true, noremap = true})
+map.set("n", "<leader>py", "<cmd>!python %<CR>", { silent = true, noremap = true })
 
 -- 断点
-vim.keymap.set({"i", "n", "v"}, "<F5>", "<cmd>lua require'dap'.continue()<CR>", {silent = true, noremap = true, buffer = bufnr})
-vim.keymap.set({"i", "n", "v"}, "<F10>", "<cmd>lua require'dap'.step_over()<CR>", {silent = true, noremap = true, buffer = bufnr})
-vim.keymap.set({"i", "n", "v"}, "<F11>", "<cmd>lua require'dap'.step_into()<CR>", {silent = true, noremap = true, buffer = bufnr})
-vim.keymap.set({"i", "n", "v"}, "<F12>", "<cmd>lua require'dap'.step_over()<CR>", {silent = true, noremap = true, buffer = bufnr})
-vim.keymap.set({"i", "n", "v"}, "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", {silent = true, noremap = true, buffer = bufnr})
+map.set({ "i", "n", "v" }, "<F5>", "<cmd>lua require'dap'.continue()<CR>", opt)
+map.set({ "i", "n", "v" }, "<F10>", "<cmd>lua require'dap'.step_over()<CR>", opt)
+map.set({ "i", "n", "v" }, "<F11>", "<cmd>lua require'dap'.step_into()<CR>", opt)
+map.set({ "i", "n", "v" }, "<F12>", "<cmd>lua require'dap'.step_over()<CR>", opt)
+map.set({ "i", "n", "v" }, "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opt)
