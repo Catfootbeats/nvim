@@ -1,4 +1,4 @@
-vim.g.maploader = "\\"
+
 vim.g.maplocalleader = ""
 -- 保存本地变量
 local map = vim.keymap
