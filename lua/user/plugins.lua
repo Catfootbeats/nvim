@@ -77,6 +77,9 @@ return packer.startup(
       "nvim-telescope/telescope.nvim",
       requires = { "nvim-lua/plenary.nvim" },
     })
+    -- CMake工具
+    -- https://github.com/Civitasv/cmake-tools.nvim
+    use 'Civitasv/cmake-tools.nvim'
     -- telescope extensions
     -- use("LinArcX/telescope-env.nvim")
     -- use("nvim-telescope/telescope-ui-select.nvim")
@@ -85,6 +88,8 @@ return packer.startup(
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
     }
+    use {"nvim-treesitter/nvim-treesitter-textobjects", run = ":TSUpdate",}
+
     use 'JoosepAlviste/nvim-ts-context-commentstring'
     -- 注释
     use "numToStr/Comment.nvim" -- Easily comment stuff
