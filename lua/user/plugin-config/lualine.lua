@@ -28,10 +28,7 @@ local config = {
   sections = {
     lualine_c = {
       -- "filename",
-      {
-        "lsp_progress",
-        spinner_symbols = { " ", " ", " ", " ", " ", " " },
-      },
+      
     },
     lualine_x = {
       "filesize",
@@ -200,4 +197,8 @@ ins_left {
   end
 }
 
+ins_left {
+    "lsp_progress",
+    spinner_symbols = { " ", " ", " ", " ", " ", " " },
+}
 lualine.setup(config)

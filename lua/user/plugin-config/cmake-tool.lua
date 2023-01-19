@@ -3,7 +3,7 @@ require("cmake-tools").setup {
   cmake_build_directory = "build",
   cmake_build_directory_prefix = "build/", -- when cmake_build_directory is "", this option will be activated
   cmake_build_type = "Debug",
-  cmake_generate_options = { "-D", "CMAKE_EXPORT_COMPILE_COMMANDS=1", "-D", "CMAKE_TOOLCHAIN_FILE=D:/vcpkg/scripts/buildsystems/vcpkg.cmake"},
+  cmake_generate_options = { "-D", "CMAKE_EXPORT_COMPILE_COMMANDS=1", "-D", "CMAKE_TOOLCHAIN_FILE=D:/vcpkg/scripts/buildsystems/vcpkg.cmake", "-G", "MinGW Makefiles"},
   cmake_build_options = {},
   cmake_console_size = 10, -- cmake output window height
   cmake_show_console = "always", -- "always", "only_on_error"

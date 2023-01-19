@@ -4,7 +4,8 @@
 
 - 卸载插件 把要卸载的插件注释或者删除掉 PackerClean
 
-// 不用了（lua/user/plugin-config/codelldb里改成你的vscode codelldb拓展位置
+如果lldb
+lua/user/plugin-config/codelldb里改成你的vscode codelldb拓展位置
 
 配置dap https://github.com/mfussenegger/nvim-dap 用cpptools
 
