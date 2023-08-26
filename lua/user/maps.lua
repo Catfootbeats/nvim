@@ -22,6 +22,13 @@ map.set("n", "so", "<C-w>o", opt) -- close others
 -- so 关闭其他分屏 (o = other)
 -- s>s<s=sjsk 分屏比例控制
 
+-- 视觉模式移动选定内容
+map.set("v", "J", ":m '>+1<CR>gv=gv")
+map.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- 取消高亮
+map.set("n", "<leader>nh", ":nohl<CR>")
+
 -- 比例控制（不常用，因为支持鼠标拖拽）
 map.set("n", "s>", ":vertical resize +20<CR>", opt)
 map.set("n", "s<", ":vertical resize -20<CR>", opt)

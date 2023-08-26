@@ -8,8 +8,9 @@ require("cmake-tools").setup {
   cmake_console_size = 10, -- cmake output window height
   cmake_show_console = "always", -- "always", "only_on_error"
   cmake_dap_configuration = { name = "cpp", type = "cppdbg", request = "launch",stopOnEntry = false,
-    runInTerminal = true,
-    console = "integratedTerminal", }, -- dap configuration, optional
+   runInTerminal = true,
+   console = "integratedTerminal", 
+    }, -- dap configuration, optional
   cmake_variants_message = {
     short = { show = true },
     long = { show = true, max_length = 40 }

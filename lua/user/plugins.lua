@@ -89,6 +89,7 @@ return packer.startup(
       run = ":TSUpdate",
     }
     use {"nvim-treesitter/nvim-treesitter-textobjects", run = ":TSUpdate",}
+    use "p00f/nvim-ts-rainbow"
 
     use 'JoosepAlviste/nvim-ts-context-commentstring'
     -- 注释
