@@ -1,5 +1,8 @@
 require('options')
 require('plugins')
 require('colorscheme')
-require('config.lsp')
 require('keymaps')
+
+function print(...)
+   vim.notify(vim.inspect({...})) 
+end

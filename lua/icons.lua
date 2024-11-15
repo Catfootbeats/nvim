@@ -2,47 +2,47 @@
 -- go to the above and then enter <c-v>u<unicode> and the symbold should appear
 -- or go here and upload the font file: https://mathew-kurian.github.io/CharacterMap/
 -- find more here: https://www.nerdfonts.com/cheat-sheet
--- elseif vim.fn.has "mac" == 1 then
-return {
+
+local icons = {
   kind = {
-    Text = " ",
-    Method = " ",
-    Function = " ",
+    Text = "󰦨 ",
+    Method = " ",
+    Function = " ",
     Constructor = " ",
-    Field = "ﰠ ",
+    Field = " ",
     Variable = " ",
-    Class = " ",
+    Class = " ",
     Interface = " ",
     Module = " ",
     Property = " ",
     Unit = " ",
-    Value = " ",
+    Value = "󰾡 ",
     Enum = " ",
-    Keyword = " ",
-    Snippet = " ",
-    Color = " ",
-    File = " ",
+    Keyword = " ",
+    Snippet = " ",
+    Color = " ",
+    File = " ",
     Reference = " ",
-    Folder = " ",
+    Folder = " ",
     EnumMember = " ",
-    Constant = " ",
+    Constant = " ",
     Struct = " ",
     Event = " ",
-    Operator = " ",
-    TypeParameter = " ",
-    Specifier = "",
+    Operator = " ",
+    TypeParameter = " ",
+    Specifier = " ",
     Statement = "",
-    Recovery = "",
-    TranslationUnit = "",
-    PackExpansion = ""
+    Recovery = " ",
+    TranslationUnit = " ",
+    PackExpansion = " "
   },
   type = {
-    Array = "",
-    Number = "",
-    String = "",
-    Boolean = "蘒",
-    Object = "",
-    Template = ""
+    Array = " ",
+    Number = " ",
+    String = " ",
+    Boolean = " ",
+    Object = " ",
+    Template = " "
   },
   documents = {
     File = "",
@@ -67,21 +67,21 @@ return {
     Unmerged = " "
   },
   ui = {
-    Lock              = "",
+    Lock              = "",
     TinyCircle        = "",
     Circle            = "",
     BigCircle         = "",
     BigUnfilledCircle = "",
     CircleWithGap     = "",
     LogPoint          = "",
-    Close             = "",
+    Close             = "",
     NewFile           = "",
-    Search            = "",
-    Lightbulb         = "",
+    Search            = "",
+    Lightbulb         = "",
     Project           = "",
     Dashboard         = "",
-    History           = "",
-    Comment           = "",
+    History           = "",
+    Comment           = "",
     Bug               = "",
     Code              = "",
     Telescope         = " ",
@@ -89,13 +89,12 @@ return {
     Package           = "",
     List              = "",
     SignIn            = "",
-    Check             = "",
-    Fire              = " ",
-    Note              = "",
+    Check             = "",
+    Fire              = "",
+    Note              = "",
     BookMark          = "",
-    Pencil            = " ",
-    -- ChevronRight = "",
-    ChevronRight      = ">",
+    Pencil            = "",
+    ChevronRight      = "",
     Table             = "",
     Calendar          = "",
     Line              = "▊",
@@ -104,18 +103,36 @@ return {
     Run               = "",
     VirtualPrefix     = "",
     Next              = "",
-    Previous          = ""
+    Previous          = "",
+    Clock             = "",
   },
   diagnostics = {
     Error = " ",
     Warning = " ",
     Information = " ",
     Question = " ",
-    Hint = "",
+    Hint = " ",
   },
   misc = {
-    Robot = "ﮧ ",
+    Robot = "󰚩 ",
     Squirrel = "  ",
     Tag = " ",
+    Arch = "󰣇 ",
+  },
+  cmake = {
+    CMake = "",
+    Build = "",
+    Run = "",
+    Debug = "",
   },
 }
+
+if not require 'options'.nerd_fonts then
+  for k, v in pairs(icons) do
+    for k1, v1 in pairs(v) do
+      icons[k][k1] = k1
+    end
+  end
+end
+
+return icons
