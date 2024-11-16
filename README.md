@@ -9,6 +9,7 @@
 - pip install cmake-language-server 安装cmake lsp
 - ripgrep
 - lua-language-server 安装lua lsp
+- gdb 14+
 
 ## 快捷键
 

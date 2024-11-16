@@ -1,7 +1,7 @@
 require("cmake-tools").setup {
     cmake_command = "cmake", -- this is used to specify cmake command path
     cmake_regenerate_on_save = false, -- auto generate when save CMakeLists.txt
-    cmake_generate_options = { "-GNinja", "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" }, -- this will be passed when invoke `CMakeGenerate`
+    cmake_generate_options = { "-DCMAKE_C_COMPILER=" ..vim.fn.exepath("gdb"), "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" }, -- this will be passed when invoke `CMakeGenerate`
     cmake_build_options = {}, -- this will be passed when invoke `CMakeBuild`
     -- support macro expansion:
     --       ${kit}
@@ -18,7 +18,7 @@ require("cmake-tools").setup {
     },
     cmake_dap_configuration = { -- debug settings for cmake
         name = "cpp",
-        type = "codelldb",
+        type = "gdb",
         request = "launch",
         stopOnEntry = false,
         runInTerminal = true,
