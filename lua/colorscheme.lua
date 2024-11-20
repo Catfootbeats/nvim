@@ -17,6 +17,7 @@ if require 'options'.more_cpp_ftdetect then
     augroup end
     ]]
 end
+-- 透明
 if require 'options'.transparent_color then
     vim.cmd [[
     augroup colorscheme_mock

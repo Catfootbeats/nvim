@@ -329,6 +329,7 @@ end
 
 require'lualine'.setup {
     options = {
+        disabled_filetypes = { "alpha", "dashboard", "Outline", "dap-repl" },
         theme = 'auto',
         component_separators = {
             left = "|",
@@ -371,10 +372,10 @@ require'lualine'.setup {
     tabline = {},
     winbar = {
         lualine_a = {},
-        lualine_b = {cmake_component[1], cmake_component[2]},
-        lualine_c = {cmake_component[3], cmake_component[4]},
-        lualine_x = {aerial},
-        lualine_y = {ctime},
+        lualine_b = { cmake_component[1], cmake_component[2] },
+        lualine_c = { cmake_component[3], cmake_component[4] },
+        lualine_x = { aerial },
+        lualine_y = { ctime },
         lualine_z = {},
     },
     inactive_winbar = {},
