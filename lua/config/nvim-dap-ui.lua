@@ -12,10 +12,6 @@ dap.listeners.before.event_exited.dapui_config = function()
     dapui.close()
 end
 
-
-require("nvim-dap-virtual-text").setup({
-    commented = true,
-})
 dapui.setup({
     expand_lines = true,
     icons = { expanded = "", collapsed = "", circular = "" },
@@ -37,7 +33,7 @@ dapui.setup({
                 { id = "watches",     size = 0.25 },
             },
             size = 0.33,
-            position = "right",
+            position = "left",
         },
         {
             elements = {
@@ -54,6 +50,21 @@ dapui.setup({
         border = vim.g.border_chars, -- Border style. Can be 'single', 'double' or 'rounded'
         mappings = {
             close = { "q", "<Esc>" },
+        },
+    },
+    controls = {
+        enabled = vim.fn.exists("+winbar") == 1,
+        element = "repl",
+        icons = {
+            pause = "",
+            play = "",
+            step_into = "",
+            step_over = "",
+            step_out = "",
+            step_back = "",
+            run_last = "",
+            terminate = "",
+            disconnect = "",
         },
     },
 })

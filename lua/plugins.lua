@@ -30,8 +30,8 @@ require("lazy").setup({
 		end,
 	},
 	{ "catppuccin/nvim",      name = "catppuccin", priority = 1000 },
-	-- 'glepnir/zephyr-nvim',
-	-- 'shaunsingh/nord.nvim',
+	'glepnir/zephyr-nvim',
+	'shaunsingh/nord.nvim',
 	----------------------------------------------------------------------------------
 	-- base api
 	{ "nvim-lua/popup.nvim" },
@@ -265,15 +265,16 @@ require("lazy").setup({
 			require("config.nvim-dap")
 		end,
     },
-    -- {
-    --     "rcarriga/nvim-dap-ui",
-    --     dependencies = {
-	-- 		"theHamsta/nvim-dap-virtual-text",
-    --     },
-	-- 	config = function ()
-	-- 		require("config.nvim-dap-ui")
-	-- 	end
-	-- },
+    {
+        "rcarriga/nvim-dap-ui",
+        dependencies = {
+			"theHamsta/nvim-dap-virtual-text",
+        },
+		config = function ()
+			require("config.nvim-dap-ui")
+		end
+    },
+	"theHamsta/nvim-dap-virtual-text",
 	-- {
 	-- 	'archibate/gpt4o',
 	-- 	run = ':UpdateRemotePlugins'

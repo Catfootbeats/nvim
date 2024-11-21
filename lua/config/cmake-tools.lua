@@ -1,6 +1,9 @@
+local osys = require("cmake-tools.osys")
 require("cmake-tools").setup {
-    cmake_command = "cmake", -- this is used to specify cmake command path
-    cmake_regenerate_on_save = false, -- auto generate when save CMakeLists.txt
+    cmake_command = "cmake",                                                                                         -- this is used to specify cmake command path
+    ctest_command = "ctest",                                                                                         -- this is used to specify ctest command path
+    cmake_use_preset = true,
+    cmake_regenerate_on_save = true, -- auto generate when save CMakeLists.txt
     cmake_generate_options = { "-DCMAKE_C_COMPILER=" ..vim.fn.exepath("gdb"), "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" }, -- this will be passed when invoke `CMakeGenerate`
     cmake_build_options = {}, -- this will be passed when invoke `CMakeBuild`
     -- support macro expansion:
@@ -8,8 +11,13 @@ require("cmake-tools").setup {
     --       ${kitGenerator}
     --       ${variant:xx}
     -- cmake_build_directory = "out/${variant:buildType}", -- this is used to specify generate directory for cmake, allows macro expansion
-    cmake_build_directory = "build", -- this is used to specify generate directory for cmake, allows macro expansion
-    cmake_soft_link_compile_commands = false, -- this will automatically make a soft link from compile commands file to project root dir
+    cmake_build_directory = function()
+        if osys.iswin32 then
+            return "out\\${variant:buildType}"
+        end
+        return "out/${variant:buildType}"
+    end,                                         -- this is used to specify generate directory for cmake, allows macro expansion, can be a string or a function returning the string, relative to cwd.
+    cmake_soft_link_compile_commands = true, -- this will automatically make a soft link from compile commands file to project root dir
     cmake_compile_commands_from_lsp = true, -- this will automatically set compile commands file location using lsp, to use it, please set `cmake_soft_link_compile_commands` to false
     cmake_kits_path = nil, -- this is used to specify global cmake kits path, see CMakeKits for detailed usage
     cmake_variants_message = {
@@ -107,7 +115,7 @@ require("cmake-tools").setup {
         spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }, -- icons used for progress display
         refresh_rate_ms = 100, -- how often to iterate icons
     },
-    cmake_virtual_text_support = false,
+    cmake_virtual_text_support = true,
 }
 
 local function is_cmake_tools_running()

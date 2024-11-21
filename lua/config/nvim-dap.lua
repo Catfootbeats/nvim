@@ -19,11 +19,6 @@ local function file_exists(name)
     end
 end
 
-local function os_capture_getcwd()
-    local s = string.gsub(vim.fn.getcwd(), '\\', '/')
-	return s
-end
-
 
 
 local whichkey = require "which-key"
@@ -62,10 +57,6 @@ local keymap_v = {
 whichkey.add(keymap_v)
 --- require("legendary.integrations.which-key").bind_whichkey(keymap_v, opts, false)
 
----- UI
-
-require 'config.nvim-dap-ui'
-
 ---- LANGUAGE CONFIGRATION ----
 
 local dap = require('dap')
@@ -76,8 +67,7 @@ dap.defaults.fallback.switchbuf = 'useopen,uselast'
 dap.adapters.gdb = {
     type = "executable",
 	command = vim.fn.exepath("gdb"),
-    args = { "-i", "dap" },
-	cwd = os_capture_getcwd()
+	args = { "--interpreter=dap", "--eval-command", "set print pretty on" }
 }
 
 dap.configurations.cpp = {
@@ -86,31 +76,38 @@ dap.configurations.cpp = {
 		type = "gdb",
         request = "launch",
         program = function()
-			-- TODO: Windows Magic
 			local ok, xmakepath = pcall(function()
 				return require("xmake.project_config").info.target.exec_path
 			end)
 			if ok then
 				return xmakepath
 			end
-			-- TODO: cmake path?
-			local exepath = 'a.out'
-			if file_exists(exepath) then
-				return exepath
+			local exepath
+			if package.cpath:match("%p[\\|/]?%p(%a+)") == "dll" then
+				exepath = 'a.exe'
+			else
+				exepath = 'a.out'
 			end
-			return vim.fn.input('Path to executable: ', os_capture_getcwd() .. '/', 'file')
+            if file_exists(exepath) then
+                return exepath
+            end
+			return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
 		end,
-		cwd = os_capture_getcwd(),
+        cwd = '${workspaceFolder}',
 		stopOnEntry = false,
 	},
 	{
-		name = "Attach to process",
+		name = "Select and attach to process",
 		type = "gdb",
 		request = "attach",
 		program = function()
-			return vim.fn.input('Process PID: ', os_capture_getcwd() .. '/', 'file')
+			return vim.fn.input('Process PID: ', vim.fn.getcwd() .. '/', 'file')
+        end,
+		pid = function()
+			local name = vim.fn.input('Executable name (filter): ')
+			return require("dap.utils").pick_process({ filter = name })
 		end,
-		cwd = os_capture_getcwd(),
+		cwd = '${workspaceFolder}',
 		stopOnEntry = false,
 	},
 }
@@ -204,7 +201,7 @@ dap.configurations.javascript = {
 		type = 'node2',
 		request = 'launch',
 		program = '${file}',
-		cwd = os_capture_getcwd(),
+		cwd = '${workspaceFolder}',
 		sourceMaps = true,
 		protocol = 'inspector',
 		console = 'integratedTerminal',

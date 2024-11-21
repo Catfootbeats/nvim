@@ -41,7 +41,7 @@ vim.opt.cursorline = true
 vim.opt.termguicolors = true
 
 vim.cmd [[
-silent! colorscheme everforest
+silent! colorscheme nord
 ]]
 
 -- More custom options goes here
