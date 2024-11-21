@@ -1,4 +1,4 @@
-require("toggleterm").setup{
+require("toggleterm").setup {
   -- size can be a number or function which is passed the current terminal
   size = function(term)
     if term.direction == "horizontal" then
@@ -14,7 +14,7 @@ require("toggleterm").setup{
   shade_terminals = false,
   -- shading_factor = '1', -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
   start_in_insert = true,
-  insert_mappings = true, -- whether or not the open mapping applies in insert mode
+  insert_mappings = true,   -- whether or not the open mapping applies in insert mode
   terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
   persist_size = true,
   persist_mode = true,
@@ -22,7 +22,7 @@ require("toggleterm").setup{
   direction = 'tab',
   -- direction = 'vertical',
   close_on_exit = true, -- close the terminal window when the process exits
-  auto_scroll = false, -- automatically scroll to the bottom on terminal output
+  auto_scroll = false,  -- automatically scroll to the bottom on terminal output
   -- This field is only relevant if direction is set to 'float'
   float_opts = {
     -- The border key is *almost* the same as 'nvim_open_win'
@@ -34,19 +34,19 @@ require("toggleterm").setup{
     height = 18,
     winblend = 3,
   },
-    highlights = {
-        -- highlights which map to a highlight group name and a table of it's values
-        -- NOTE: this is only a subset of values, any group placed here will be set for the terminal window split
-        Normal = {
-            guibg = "none",
-        },
-        NormalFloat = {
-            link = 'Normal',
-        },
-        FloatBorder = {
-            guibg = "none",
-        },
+  highlights = {
+    -- highlights which map to a highlight group name and a table of it's values
+    -- NOTE: this is only a subset of values, any group placed here will be set for the terminal window split
+    Normal = {
+      guibg = "none",
     },
+    NormalFloat = {
+      link = 'Normal',
+    },
+    FloatBorder = {
+      guibg = "none",
+    },
+  },
   winbar = {
     enabled = false,
     name_formatter = function(term) --  term: Terminal
@@ -58,7 +58,7 @@ require("toggleterm").setup{
 -- local Terminal = require('toggleterm.terminal').Terminal
 
 function _G.set_terminal_keymaps()
-  local opts = {buffer = 0}
+  local opts = { buffer = 0 }
   vim.keymap.set('n', '<Esc>', [[<Cmd>quit<CR>]], opts)
   -- vim.keymap.set('n', '<C-\\>', [[<Cmd>quit<CR>]], opts)
   vim.keymap.set('n', 'q', [[<Cmd>quit<CR>]], opts)
@@ -84,16 +84,18 @@ end
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 -- using powershell
-local powershell_options = {
-  shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell",
-  shellcmdflag =
-  "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
-  shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
-  shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
-  shellquote = "",
-  shellxquote = "",
-}
+if package.cpath:match("%p[\\|/]?%p(%a+)") == "dll" then
+  local powershell_options = {
+    shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell",
+    shellcmdflag =
+    "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
+    shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
+    shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
+    shellquote = "",
+    shellxquote = "",
+  }
 
-for option, value in pairs(powershell_options) do
-  vim.opt[option] = value
+  for option, value in pairs(powershell_options) do
+    vim.opt[option] = value
+  end
 end

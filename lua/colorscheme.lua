@@ -9,16 +9,15 @@
 --     return
 -- end
 -- 
-if require 'options'.more_cpp_ftdetect then
-    vim.cmd [[
-    augroup set_filetype
-        au! BufRead,BufNewFile *.cppm,*.ixx setfiletype cpp
-        au! BufRead,BufNewFile *.vert,*.frag,*.comp,*.geom,*.tess setfiletype glsl
-    augroup end
-    ]]
-end
+vim.cmd [[
+augroup set_filetype
+    au! BufRead,BufNewFile *.cppm,*.ixx setfiletype cpp
+    au! BufRead,BufNewFile *.vert,*.frag,*.comp,*.geom,*.tess setfiletype glsl
+augroup end
+]]
 -- 透明
-if require 'options'.transparent_color then
+local enable_transparent_color = true
+if enable_transparent_color then
     vim.cmd [[
     augroup colorscheme_mock
     autocmd!
@@ -34,11 +33,9 @@ if require 'options'.transparent_color then
     ]]
 end
 
-if not require 'options'.enable_clipboard then
-    vim.cmd [[
-        set clipboard-=unnamedplus
-    ]]
-end
+vim.cmd [[
+    set clipboard-=unnamedplus
+]]
 
 vim.opt.cursorline = true
 vim.opt.termguicolors = true

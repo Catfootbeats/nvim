@@ -274,10 +274,10 @@ require("lazy").setup({
 	-- 		require("config.nvim-dap-ui")
 	-- 	end
 	-- },
-	{
-		'archibate/gpt4o',
-		run = ':UpdateRemotePlugins'
-	},
+	-- {
+	-- 	'archibate/gpt4o',
+	-- 	run = ':UpdateRemotePlugins'
+	-- },
 	{
 		'archibate/genius.nvim',
 		dependencies = {
