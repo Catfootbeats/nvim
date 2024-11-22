@@ -1,9 +1,4 @@
-
-    <C-k/j> 或者 <Tab>/<Shift-Tab> 在各种候选项里面移动
-    <C-b/f> 在候选项的文档里面移动
-    <CR> 也就是回车键确定补全
-
-## 配置
+# 如何配置
 - CMake Path in nvim-dap.lua
 - 安装LLVM使用Clangd
 - pip install cmake-language-server 安装cmake lsp
@@ -11,9 +6,13 @@
 - lua-language-server 安装lua lsp
 - gdb 14+
 
-## 快捷键
+# TODO
 
-    WHERE IS CONFRATION ?
+- [ ] DAP (gdb) 适配Windows （唉Windows Magic）
+
+# 快捷键
+
+    快捷键配置在那里？
 
     keymaps.lua
     aerial.lua
@@ -23,9 +22,17 @@
     telescope.lua
     toggleterm.lua
 
+## 基础
 
+`<leader>` 按键默认为 ` (就是键盘左上角的那个`)
+
+| 键位         | 功能 |
+| ----------- | ----------- |
+| `<leader>` + `o`      | 打开大纲       |
+| `F12`   | 打开另一个大纲        | 
+| 
 - `<leader>`键 `
-- `<leader>` + `o`打开大纲
+- 打开大纲
 - `F12` 打开另一个大纲 `{` `}`在函数之间跳转
 - `space` 输入字母 选择光标转移位置
 - `Ctrl` + `Insert` 复制；`Shift` + `Insert` 粘贴
@@ -40,8 +47,7 @@
 - `zz` 至于中央 `w` word `e` end `b` back
 
 
-### 窗口操作
+## 窗口操作
 - `Alt` + Up Down Left Right 调整窗口大小
 - `Alt` + `h` `j` `k` `l` 切换窗口焦点
 
-TODO 配置DAP
