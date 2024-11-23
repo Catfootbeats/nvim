@@ -289,12 +289,10 @@ require("lazy").setup({
 	-- "HakonHarnes/img-clip.nvim",
 	-- 'MeanderingProgrammer/render-markdown.nvim',
 	{
-		'iamcco/markdown-preview.nvim',
-		run = function() vim.fn["mkdp#util#install"]() end,
-		setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
-		config = function() vim.cmd [[let g:mkdp_browser = '/usr/bin/chromium']] end,
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		ft = { "markdown" },
-		dependencies = 'iamcco/mathjax-support-for-mkdp',
+		build = function() vim.fn["mkdp#util#install"]() end,
 	},
 	{
 		'ferrine/md-img-paste.vim',
@@ -326,10 +324,6 @@ autocmd FileType markdown nnoremap <silent> mp :call mdip#MarkdownClipboardImage
 		},
 		config = function() require('config.nvim-treesitter') end,
 	},
-	{
-		'stevearc/aerial.nvim',
-		config = function() require("config.aerial") end,
-	},
 	-----------------------------------------------------------------------
 	-- git support
 	{
@@ -342,13 +336,27 @@ autocmd FileType markdown nnoremap <silent> mp :call mdip#MarkdownClipboardImage
 		},
 		config = function() require('neogit').setup {} end,
 	},
-	-- 文件大纲
+    -- 文件大纲
 	{
-		'simrat39/symbols-outline.nvim',
-		config = function() require 'config.symbols-outline' end,
+		'stevearc/aerial.nvim',
+		config = function() require("config.aerial") end,
 	},
+	-- {
+	-- 	'simrat39/symbols-outline.nvim',
+	-- 	config = function() require 'config.symbols-outline' end,
+	-- },
 	-- tab补全
-	'ervandew/supertab',
+    'ervandew/supertab',
+    -- TODO
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		}
+	},
 	----------------------------------------------------------------------------------
 	-- LSP manager
 	{

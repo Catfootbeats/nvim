@@ -1,7 +1,7 @@
 -- define common options
 local opts = {
-    noremap = true,      -- non-recursive
-    silent = true,       -- do not show message
+    noremap = true, -- non-recursive
+    silent = true,  -- do not show message
 }
 
 vim.api.nvim_create_user_command("Quit", function()
@@ -56,15 +56,24 @@ vim.keymap.set({ "v", "n", "i", "t" }, "<F9>", "<cmd>Trouble diagnostics toggle 
 vim.keymap.set({ "v", "n", "i", "t" }, "<F21>", "<cmd>Trouble diagnostics toggle focus=false filter.buf=0<CR>",
     { silent = true })
 -- CMake
+local run
+if package.cpath:match("%p[\\|/]?%p(%a+)") == "dll" then
+    run = "./run.bat"
+else
+    run = "./run.sh"
+end
+
 if pcall(require, "cmake-tools") then
     vim.keymap.set({ "v", "n", "i", "t" }, "<F5>",
-        "<cmd>wa<CR><cmd>if luaeval('require\"cmake-tools\".is_cmake_project()')|call execute('CMakeRun')|else|call execute('TermExec cmd=./run.sh')|endif<CR>",
+        "<cmd>wa<CR><cmd>if luaeval('require\"cmake-tools\".is_cmake_project()')|call execute('CMakeRun')|else|call execute('TermExec cmd=" ..
+        run .. "')|endif<CR>",
         { silent = true })
     vim.keymap.set({ "v", "n", "i", "t" }, "<F17>",
         "<cmd>wa<CR><cmd>if luaeval('require\"cmake-tools\".is_cmake_project()')|call execute('CMakeStopRunner')|call execute('CMakeStopExecutor')|else|call execute('TermExec cmd=\\<C-c>')|endif<CR>",
         { silent = true })
     vim.keymap.set("n", "cmr",
-        "<cmd>wa<CR><cmd>if luaeval('require\"cmake-tools\".is_cmake_project()')|call execute('CMakeRun')|else|call execute('TermExec cmd=./run.sh')|endif<CR>",
+        "<cmd>wa<CR><cmd>if luaeval('require\"cmake-tools\".is_cmake_project()')|call execute('CMakeRun')|else|call execute('TermExec cmd=" ..
+        run .. "')|endif<CR>",
         { silent = true, desc = 'CMakeRun' })
     vim.keymap.set("n", "cmb",
         "<cmd>wa<CR><cmd>if luaeval('require\"cmake-tools\".is_cmake_project()')|call execute('CMakeBuild')|else|call execute('TermExec cmd=make')|endif<CR>",
@@ -76,7 +85,7 @@ if pcall(require, "cmake-tools") then
         "<cmd>wa<CR><cmd>if luaeval('require\"cmake-tools\".is_cmake_project()')|call execute('CMakeStopRunner')|call execute('CMakeStopExecutor')|else|call execute('TermExec cmd=\\<C-c>')|endif<CR>",
         { silent = true, desc = 'CMakeStopRunner' })
 else
-    vim.keymap.set({ "v", "n", "i", "t" }, "<F5>", "<cmd>wa<CR><cmd>call execute('TermExec cmd=./run.sh')<CR>",
+    vim.keymap.set({ "v", "n", "i", "t" }, "<F5>", "<cmd>wa<CR><cmd>call execute('TermExec cmd=" .. run .. "')<CR>",
         { silent = true })
     vim.keymap.set({ "v", "n", "i", "t" }, "<F17>", "<cmd>wa<CR><cmd>call execute('TermExec cmd=\\<C-c>')<CR>",
         { silent = true })
@@ -141,7 +150,6 @@ end, { desc = 'Goto declaration' })
 vim.keymap.set("n", "gss", "<cmd>Trouble diagnostics toggle<CR>")
 -- 开关编译器报错列表
 vim.keymap.set("n", "gsl", "<cmd>cclose | Trouble qflist toggle<CR>")
-vim.keymap.set("n", "gsg", "<cmd>Neogit<CR>")
 -- 当前光标下的静态分析错误
 vim.keymap.set("n", "gsd", function()
     vim.diagnostic.open_float({
@@ -166,8 +174,6 @@ vim.keymap.set({ "v", "n" }, "gsi", function()
 end, { desc = "Toggle inlay hint" })
 -- 重启 LSP
 vim.keymap.set({ "v", "n" }, "gsu", "<cmd>LspStop | LspStart<CR>", { silent = true, desc = "Restart LSP" })
--- 开关项目文件树
-vim.keymap.set({ "v", "n" }, "gsp", "<cmd>NvimTreeFindFileToggle<CR>", { silent = true, desc = "Toggle Nvim Tree", })
 -- 开关大纲视图
 vim.keymap.set({ "v", "n" }, "gso", "<cmd>AerialToggle!<CR>", { desc = "Toggle aerial outline" })
 -- 查找类型定义
@@ -198,6 +204,16 @@ vim.keymap.set({ 'n' }, '<S-Tab>', '<C-o>')
 -- vim.keymap.set({'i'}, '<C-Space>', '<Cmd>GPT<CR>')
 -- vim.keymap.set({'i', 'n'}, '<C-t>', '<Cmd>-8,+8GPT refactor this code<CR>')
 -- vim.keymap.set({'v'}, '<C-t>', '<Cmd>GPT refactor this code<CR>')
+-- markdown预览
+-- vim.keymap.set({ "v", "n" }, "go", "<cmd>MarkdownPreviewToggle<CR>", { silent = true })
+-- todo查找
+vim.keymap.set("n", "]t", function()
+    require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+vim.keymap.set("n", "[t", function()
+    require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
 
 vim.cmd [[
 augroup quickfix_setlocal
