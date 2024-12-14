@@ -96,6 +96,7 @@ map.set({ "v", "n", "i" }, "<C-l>", "<cmd>BufferLineCycleNext<CR>", opt)
 map.set({ "v", "n" }, "g<Space>", "<cmd>BufferLinePick<CR>", opt)
 -- 删除
 map.set({ "v", "n" }, "g<BS>", "<cmd>bdelete<CR>", opt)
+map.set({ "v", "n" }, "gp", ":BufferLinePickClose<CR>", opt)
 map.set({ "v", "n" }, "gB", "<cmd>BufferLineMovePrev<CR>", opt)
 map.set({ "v", "n" }, "gT", "<cmd>BufferLineMoveNext<CR>", opt)
 map.set({ "v", "n" }, "g<S-Tab>", "<cmd>BufferLineCloseOthers<CR>", opt)

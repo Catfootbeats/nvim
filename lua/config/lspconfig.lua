@@ -46,6 +46,7 @@ require 'lspconfig'.pyright.setup {
 -- require'lspconfig'.pylyzer.setup{}
 require 'lspconfig'.lua_ls.setup {}
 require 'lspconfig'.cmake.setup {}
+require 'lspconfig'.jsonls.setup {}
 -- require'lspconfig'.rust_analyzer.setup{}
 
 require('lspconfig').clangd.setup {

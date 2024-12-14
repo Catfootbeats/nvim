@@ -16,7 +16,7 @@ augroup set_filetype
 augroup end
 ]]
 -- 透明
-local enable_transparent_color = true
+local enable_transparent_color = false
 if enable_transparent_color then
     vim.cmd [[
     augroup colorscheme_mock
@@ -41,7 +41,8 @@ vim.opt.cursorline = true
 vim.opt.termguicolors = true
 
 vim.cmd [[
-silent! colorscheme nord
+silent! colorscheme everforest
 ]]
+-- other theme nord(support transparent color) everforest
 
 -- More custom options goes here
