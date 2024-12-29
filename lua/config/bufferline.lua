@@ -14,10 +14,10 @@ require("bufferline").setup {
         -- 左侧让出 nvim-tree 的位置
         offsets = {
             {
-            filetype = "NvimTree",
-            text = "File Explorer",
-            highlight = "Directory",
-            text_align = "left"
+                filetype = "NvimTree",
+                text = "File Explorer",
+                highlight = "Directory",
+                text_align = "left"
             },
         },
         close_command = function(bufnum)
@@ -83,13 +83,11 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 })
 
 local map = vim.keymap
-local opt = {noremap = true, silent = true }
+local opt = { noremap = true, silent = true }
 -- bufferline 切换
 -- Pin
 map.set({ "v", "n" }, "g<Tab>", "<cmd>BufferLineTogglePin<CR>", opt)
 -- 前后选择
-map.set({ "v", "n" }, "gb", "<cmd>BufferLineCyclePrev<CR>", opt)
-map.set({ "v", "n" }, "gt", "<cmd>BufferLineCycleNext<CR>", opt)
 map.set({ "v", "n", "i" }, "<C-h>", "<cmd>BufferLineCyclePrev<CR>", opt)
 map.set({ "v", "n", "i" }, "<C-l>", "<cmd>BufferLineCycleNext<CR>", opt)
 -- 挑选
@@ -97,8 +95,8 @@ map.set({ "v", "n" }, "g<Space>", "<cmd>BufferLinePick<CR>", opt)
 -- 删除
 map.set({ "v", "n" }, "g<BS>", "<cmd>bdelete<CR>", opt)
 map.set({ "v", "n" }, "gp", ":BufferLinePickClose<CR>", opt)
-map.set({ "v", "n" }, "gB", "<cmd>BufferLineMovePrev<CR>", opt)
-map.set({ "v", "n" }, "gT", "<cmd>BufferLineMoveNext<CR>", opt)
+map.set({ "v", "n" }, "gb", "<cmd>BufferLineMovePrev<CR>", opt)
+map.set({ "v", "n" }, "gt", "<cmd>BufferLineMoveNext<CR>", opt)
 map.set({ "v", "n" }, "g<S-Tab>", "<cmd>BufferLineCloseOthers<CR>", opt)
 map.set({ "v", "n" }, "g<C-b>", "<cmd>BufferLineCloseLeft<CR>", opt)
 map.set({ "v", "n" }, "g<C-t>", "<cmd>BufferLineCloseRight<CR>", opt)
