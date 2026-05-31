@@ -5,7 +5,8 @@ require("mason").setup({
 			package_pending = "➜",
 			package_uninstalled = "✗"
 		}
-	}
+	},
+	log_level = vim.log.levels.WARN,
 })
 
 require("mason-lspconfig").setup {
@@ -15,7 +16,6 @@ require("mason-lspconfig").setup {
 		'lua_ls',
 		"jsonls",
 		"clangd",
-		"cmake",
 	},
 	automatic_installation = true,
 }

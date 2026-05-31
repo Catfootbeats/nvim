@@ -314,7 +314,7 @@ autocmd FileType markdown nnoremap <silent> mp :call mdip#MarkdownClipboardImage
 		end,
 		-- build = ":TSUpdate", old way to Sync
 		dependencies = {
-			'p00f/nvim-ts-rainbow',
+			'HiPhish/rainbow-delimiters.nvim',
 			'nvim-treesitter/nvim-treesitter-textobjects',
 			-- 'nvim-treesitter/nvim-treesitter-context',
 			'JoosepAlviste/nvim-ts-context-commentstring',
@@ -363,7 +363,6 @@ autocmd FileType markdown nnoremap <silent> mp :call mdip#MarkdownClipboardImage
 		'williamboman/mason.nvim',
 		dependencies = {
 			'williamboman/mason-lspconfig.nvim',
-			"mason-org/mason-registry",
 		},
 		run = ":MasonUpdate",
 		config = function() require("config.mason") end,
@@ -389,8 +388,8 @@ autocmd FileType markdown nnoremap <silent> mp :call mdip#MarkdownClipboardImage
 		},
 		config = function() require "config.which-key" end,
 	},
-	{
-		"phaazon/hop.nvim",
-		config = function() require "config.hop" end,
-	},
+	-- {
+	-- 	"phaazon/hop.nvim",
+	-- 	config = function() require "config.hop" end,
+	-- },
 })

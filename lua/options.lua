@@ -70,7 +70,7 @@ autocmd SwapExists * let v:swapchoice = "e"
 augroup end
 ]]
 
-vim.lsp.set_log_level("warn")
+-- vim.lsp.set_log_level("warn")  -- deprecated, default is already "warn"
 
 local default_opts = {
     nerd_fonts = true,

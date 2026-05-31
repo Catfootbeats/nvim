@@ -40,16 +40,22 @@ local function clangd_on_attach(client, bufnr)
     end
 end
 
-require 'lspconfig'.pyright.setup {
+vim.lsp.config('pyright', {
     on_attach = pyright_on_attach,
-}
--- require'lspconfig'.pylyzer.setup{}
-require 'lspconfig'.lua_ls.setup {}
-require 'lspconfig'.cmake.setup {}
-require 'lspconfig'.jsonls.setup {}
--- require'lspconfig'.rust_analyzer.setup{}
+})
+vim.lsp.enable('pyright')
 
-require('lspconfig').clangd.setup {
+-- vim.lsp.config('pylyzer', {}); vim.lsp.enable('pylyzer')
+
+vim.lsp.config('lua_ls', {})
+vim.lsp.enable('lua_ls')
+
+vim.lsp.config('jsonls', {})
+vim.lsp.enable('jsonls')
+
+-- vim.lsp.config('rust_analyzer', {}); vim.lsp.enable('rust_analyzer')
+
+vim.lsp.config('clangd', {
     on_attach = clangd_on_attach,
     on_new_config = function(new_config, new_cwd)
         local status, cmake = pcall(require, "cmake-tools")
@@ -57,7 +63,8 @@ require('lspconfig').clangd.setup {
             cmake.clangd_on_new_config(new_config)
         end
     end,
-}
+})
+vim.lsp.enable('clangd')
 
 -- vim.api.nvim_set_hl(0, 'LspReferenceRead', {link = 'Search'})
 -- vim.api.nvim_set_hl(0, 'LspReferenceText', {link = 'Search'})
