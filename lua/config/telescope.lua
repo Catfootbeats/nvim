@@ -25,10 +25,6 @@ require("telescope").setup{
 
 -- 查找文件
 vim.keymap.set("n", "<leader>l", "<cmd>Telescope find_files initial_mode=insert<CR>")
--- 查找文件（仅包含 CMake 目标所直接包含的源和头文件）
-vim.keymap.set("n", "<leader>L", "<cmd>Telescope cmake_tools sources initial_mode=insert<CR>")
--- 查找文件（仅包含 CMakeLists.txt 和 *.cmake 类文件）
-vim.keymap.set("n", "<leader>O", "<cmd>Telescope cmake_tools cmake_files initial_mode=insert<CR>")
 -- 查找 git 仓库中的文件
 vim.keymap.set("n", "<leader>i", "<cmd>Telescope git_files initial_mode=insert<CR>")
 -- 查找最近打开过的文件

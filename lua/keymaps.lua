@@ -55,41 +55,6 @@ vim.keymap.set({ "v", "n", "i" }, "<F18>", "<cmd>copen<CR>")
 vim.keymap.set({ "v", "n", "i", "t" }, "<F9>", "<cmd>Trouble diagnostics toggle focus=false<CR>", { silent = true })
 vim.keymap.set({ "v", "n", "i", "t" }, "<F21>", "<cmd>Trouble diagnostics toggle focus=false filter.buf=0<CR>",
     { silent = true })
--- CMake
-local run
-if package.cpath:match("%p[\\|/]?%p(%a+)") == "dll" then
-    run = "./run.bat"
-else
-    run = "./run.sh"
-end
-
-if pcall(require, "cmake-tools") then
-    vim.keymap.set({ "v", "n", "i", "t" }, "<F5>",
-        "<cmd>wa<CR><cmd>if luaeval('require\"cmake-tools\".is_cmake_project()')|call execute('CMakeRun')|else|call execute('TermExec cmd=" ..
-        run .. "')|endif<CR>",
-        { silent = true })
-    vim.keymap.set({ "v", "n", "i", "t" }, "<F17>",
-        "<cmd>wa<CR><cmd>if luaeval('require\"cmake-tools\".is_cmake_project()')|call execute('CMakeStopRunner')|call execute('CMakeStopExecutor')|else|call execute('TermExec cmd=\\<C-c>')|endif<CR>",
-        { silent = true })
-    vim.keymap.set("n", "cmr",
-        "<cmd>wa<CR><cmd>if luaeval('require\"cmake-tools\".is_cmake_project()')|call execute('CMakeRun')|else|call execute('TermExec cmd=" ..
-        run .. "')|endif<CR>",
-        { silent = true, desc = 'CMakeRun' })
-    vim.keymap.set("n", "cmb",
-        "<cmd>wa<CR><cmd>if luaeval('require\"cmake-tools\".is_cmake_project()')|call execute('CMakeBuild')|else|call execute('TermExec cmd=make')|endif<CR>",
-        { silent = true, desc = 'CMakeBuild' })
-    vim.keymap.set("n", "cmc",
-        "<cmd>wa<CR><cmd>if luaeval('require\"cmake-tools\".is_cmake_project()')|call execute('CMakeGenerate')|else|call execute('TermExec cmd=./configure')|endif<CR>",
-        { silent = true, desc = 'CMakeGenerate' })
-    vim.keymap.set("n", "cms",
-        "<cmd>wa<CR><cmd>if luaeval('require\"cmake-tools\".is_cmake_project()')|call execute('CMakeStopRunner')|call execute('CMakeStopExecutor')|else|call execute('TermExec cmd=\\<C-c>')|endif<CR>",
-        { silent = true, desc = 'CMakeStopRunner' })
-else
-    vim.keymap.set({ "v", "n", "i", "t" }, "<F5>", "<cmd>wa<CR><cmd>call execute('TermExec cmd=" .. run .. "')<CR>",
-        { silent = true })
-    vim.keymap.set({ "v", "n", "i", "t" }, "<F17>", "<cmd>wa<CR><cmd>call execute('TermExec cmd=\\<C-c>')<CR>",
-        { silent = true })
-end
 -- neogit
 -- vim.keymap.set({"v", "n", "i", "t"}, "<F10>", "<cmd>Neogit<CR><cmd>set foldtext='+'<CR>", { silent = true })
 vim.keymap.set({ "v", "n", "i", "t" }, "<F10>", function()

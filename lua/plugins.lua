@@ -129,27 +129,11 @@ require("lazy").setup({
 		config = function() require "inc_rename".setup {} end,
 	},
 	----------------------------------------------------------------------------------
-	-- plugin develop
-	-- { "folke/neodev.nvim", config = function() require"neodev".setup{} end, },
-	-- {
-	--     "folke/lazydev.nvim",
-	--     ft = { "lua" },
-	--     requires = { "Bilal2453/luvit-meta", },
-	--     config = function() require"lazydev".setup{} end,
-	-- },
-	----------------------------------------------------------------------------------
 	-- session and projects
 	{
 		'stevearc/stickybuf.nvim',
 		config = function() require 'stickybuf'.setup() end,
 	},
-	-- {
-	--     "startup-nvim/startup.nvim",
-	--     requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
-	--     config = function()
-	--         require"startup".setup()
-	--     end,
-	-- },
 	{
 		"ethanholz/nvim-lastplace",
 		config = function() require 'nvim-lastplace'.setup {} end,
@@ -161,11 +145,6 @@ require("lazy").setup({
 		'akinsho/toggleterm.nvim',
 		version = "*",
 		config = function() require 'config.toggleterm' end,
-	},
-	{
-		'Civitasv/cmake-tools.nvim',
-		requires = "nvim-lua/plenary.nvim",
-		config = function() require 'config.cmake-tools' end,
 	},
 	----------------------------------------------------------------------------------
 	-- 文件模糊搜索
@@ -185,7 +164,6 @@ require("lazy").setup({
 			"nvim-telescope/telescope-ui-select.nvim",
 			'LinArcX/telescope-changes.nvim',
 			'nvim-telescope/telescope-github.nvim',
-			-- "nvim-telescope/telescope-live-grep-raw.nvim",
 		},
 		config = function() require "config.telescope" end,
 	},
@@ -213,20 +191,8 @@ require("lazy").setup({
 			'f3fora/cmp-spell',
 			'hrsh7th/cmp-calc',
 			'hrsh7th/cmp-emoji',
-			-- 'chrisgrieser/cmp_yanky',
-			-- 'petertriho/cmp-git',
 			'lukas-reineke/cmp-rg',
-			-- 'roobert/tailwindcss-colorizer-cmp.nvim',
 			"lukas-reineke/cmp-under-comparator",
-			-- 'hrsh7th/cmp-copilot', -- INFO: uncomment this for AI completion
-			-- {
-			--     'Ninlives/cmp-rime',
-			--     run = ':UpdateRemotePlugins | !rm -rf /tmp/tmp-pyrime && git clone https://github.com/Ninlives/pyrime /tmp/tmp-pyrime && cd /tmp/tmp-pyrime && python setup.py install --prefix ~/.local',
-			-- },
-			-- {
-			--     os.getenv('ARCHIBATE_COMPUTER') and '/home/bate/Codes/cmp-rime' or 'archibate/cmp-rime',
-			--     run = 'make',
-			-- },
 			'saadparwaiz1/cmp_luasnip',
 			{
 				'L3MON4D3/LuaSnip',
@@ -251,60 +217,6 @@ require("lazy").setup({
 		config = function() require("config.twilight") end,
 	},
 	"MunifTanjim/nui.nvim",
-	-- DAP
-	{
-		"mfussenegger/nvim-dap",
-        dependencies = {
-			"nvim-neotest/nvim-nio",
-			"nvim-telescope/telescope-dap.nvim",
-			"jbyuki/one-small-step-for-vimkind",
-		},
-		config = function()
-			require("config.nvim-dap")
-		end,
-    },
-    {
-        "rcarriga/nvim-dap-ui",
-        dependencies = {
-			"theHamsta/nvim-dap-virtual-text",
-        },
-		config = function ()
-			require("config.nvim-dap-ui")
-		end
-    },
-	"theHamsta/nvim-dap-virtual-text",
-	-- {
-	-- 	'archibate/gpt4o',
-	-- 	run = ':UpdateRemotePlugins'
-	-- },
-	{
-		'archibate/genius.nvim',
-		dependencies = {
-			'nvim-lua/plenary.nvim',
-			'MunifTanjim/nui.nvim',
-		},
-		config = function() require "config.genius" end,
-	},
-	-- markdown editing
-	-- "HakonHarnes/img-clip.nvim",
-	-- 'MeanderingProgrammer/render-markdown.nvim',
-	{
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		ft = { "markdown" },
-		build = function() vim.fn["mkdp#util#install"]() end,
-	},
-	{
-		'ferrine/md-img-paste.vim',
-		config = function()
-			vim.cmd [[
-let g:mdip_imgdir = 'img' " save image in ./img
-let g:mdip_imgname = 'image'
-autocmd FileType markdown nnoremap <silent> mp :call mdip#MarkdownClipboardImage()<CR>
-        ]]
-		end,
-		ft = { "markdown" },
-	},
 	----------------------------------------------------------------------------------
 	-- highlight and textobjects
 	{
@@ -312,11 +224,9 @@ autocmd FileType markdown nnoremap <silent> mp :call mdip#MarkdownClipboardImage
 		run = function()
 			require('nvim-treesitter.install').update({ with_sync = true })
 		end,
-		-- build = ":TSUpdate", old way to Sync
 		dependencies = {
 			'HiPhish/rainbow-delimiters.nvim',
 			'nvim-treesitter/nvim-treesitter-textobjects',
-			-- 'nvim-treesitter/nvim-treesitter-context',
 			'JoosepAlviste/nvim-ts-context-commentstring',
 			'windwp/nvim-ts-autotag',
 			'andymass/vim-matchup',
@@ -341,10 +251,6 @@ autocmd FileType markdown nnoremap <silent> mp :call mdip#MarkdownClipboardImage
 		'stevearc/aerial.nvim',
 		config = function() require("config.aerial") end,
 	},
-	-- {
-	-- 	'simrat39/symbols-outline.nvim',
-	-- 	config = function() require 'config.symbols-outline' end,
-	-- },
 	-- tab补全
     'ervandew/supertab',
     -- TODO
@@ -388,8 +294,4 @@ autocmd FileType markdown nnoremap <silent> mp :call mdip#MarkdownClipboardImage
 		},
 		config = function() require "config.which-key" end,
 	},
-	-- {
-	-- 	"phaazon/hop.nvim",
-	-- 	config = function() require "config.hop" end,
-	-- },
 })
